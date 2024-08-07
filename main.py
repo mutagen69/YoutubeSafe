@@ -1,7 +1,9 @@
 from flask import Flask, request, abort
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 session = requests.Session()
 
 proxies = { 'https' : 'modeler_PHwLLO:XWREGXIgY01n@103.57.251.138:12347' }
@@ -40,4 +42,4 @@ def page_not_found(e):
     return r.content
 
 if __name__=='__main__':
-    app.run(debug=False)
+    app.run(debug=True)
